@@ -1,0 +1,52 @@
+import { STRING, DATE, TEXT, INTEGER  } from "sequelize";
+import sequelize from "../../config/sequalizerConfig";
+import EmergencyContact from "./emergencyContactModel";
+
+const Employee = sequelize.define("Employee", {
+  id: {
+    type: INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  fullName: {
+    type: STRING,
+    allowNull: false
+  },
+  jobTitle: {
+    type: STRING,
+    allowNull: false
+  },
+  phoneNumber: {
+    type: STRING,
+    allowNull: false
+  },
+  emailId: {
+    type: STRING,
+    allowNull: false
+  },
+  address: {
+    type: TEXT,
+    defaultValue: ""
+  },
+  city: {
+    type: STRING,
+    allowNull: false
+  },
+  state: {
+    type: STRING,
+    allowNull: false
+  },
+  createdAt: {
+    type: DATE,
+    defaultValue: Date.now()
+  },
+  updatedAt: {
+    type: DATE,
+    allowNull: true
+  }
+});
+
+// foreign key in EmergencyContact.id which references Employee.id
+EmergencyContact.hasMany(Employee, { foreignKey: 'id' });
+
+export default Employee;
