@@ -2,7 +2,7 @@
 
 This is a simple Employee management API.
 
-### Live: https://recipe-management-vg17.onrender.com
+### Live: https://employee.abhisekh.info
 
 ## How to Run ?
 
